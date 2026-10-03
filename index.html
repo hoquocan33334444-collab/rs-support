@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RS Support Center</title>
+<meta name="description" content="RS Support Center - Trung tâm hỗ trợ người dùng">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span>RS</span> Support</a>
+  <nav><a href="#help">Hướng dẫn</a><a href="#faq">FAQ</a><a href="#ticket">Ticket</a><button id="authBtn" class="ghost">Đăng nhập</button></nav>
+</header>
+
+<main>
+<section class="hero">
+  <div class="badge">● HỆ THỐNG HỖ TRỢ TRỰC TUYẾN</div>
+  <h1>Bạn cần hỗ trợ?<br><span>Chúng tôi ở đây.</span></h1>
+  <p>Tạo yêu cầu hỗ trợ, theo dõi ticket và tìm câu trả lời nhanh chóng.</p>
+  <div class="hero-actions"><a class="btn" href="#ticket">＋ Tạo yêu cầu</a><a class="btn ghost" href="#faq">Xem FAQ</a></div>
+</section>
+
+<section class="stats">
+  <div><b>24/7</b><small>Tiếp nhận yêu cầu</small></div>
+  <div><b>🎫</b><small>Ticket theo dõi được</small></div>
+  <div><b>🔒</b><small>Dữ liệu theo tài khoản</small></div>
+</section>
+
+<section id="help">
+  <div class="section-head"><div><small>TRUNG TÂM TRỢ GIÚP</small><h2>Bạn đang gặp vấn đề gì?</h2></div></div>
+  <div class="cards">
+    <article class="card"><i>🔐</i><h3>Tài khoản & bảo mật</h3><p>Đăng nhập, tài khoản, bảo mật và các vấn đề liên quan.</p><button data-cat="Tài khoản">Tạo yêu cầu →</button></article>
+    <article class="card"><i>🐛</i><h3>Báo lỗi</h3><p>Thông báo lỗi hoặc tính năng hoạt động không đúng.</p><button data-cat="Báo lỗi">Báo lỗi →</button></article>
+    <article class="card"><i>💻</i><h3>Kỹ thuật</h3><p>Hỗ trợ website, ứng dụng và các vấn đề kỹ thuật.</p><button data-cat="Kỹ thuật">Nhận hỗ trợ →</button></article>
+    <article class="card"><i>💡</i><h3>Góp ý</h3><p>Đề xuất tính năng hoặc gửi phản hồi cho hệ thống.</p><button data-cat="Góp ý">Gửi góp ý →</button></article>
+  </div>
+</section>
+
+<section id="ticket" class="panel">
+  <div class="section-head"><div><small>TICKET SUPPORT</small><h2>Tạo yêu cầu hỗ trợ</h2></div><span class="status">● Đang hoạt động</span></div>
+  <form id="ticketForm">
+    <div class="grid2">
+      <label>Tiêu đề<input id="title" required maxlength="120" placeholder="Ví dụ: Không đăng nhập được"></label>
+      <label>Danh mục<select id="category"><option>Tài khoản</option><option>Báo lỗi</option><option>Kỹ thuật</option><option>Góp ý</option><option>Khác</option></select></label>
+    </div>
+    <div class="grid2">
+      <label>Mức độ<select id="priority"><option>Thấp</option><option selected>Bình thường</option><option>Cao</option><option>Khẩn cấp</option></select></label>
+      <label>Email liên hệ<input id="email" type="email" required placeholder="you@example.com"></label>
+    </div>
+    <label>Nội dung<textarea id="message" required maxlength="5000" rows="6" placeholder="Mô tả vấn đề của bạn..."></textarea></label>
+    <button class="btn" type="submit">Gửi yêu cầu</button>
+    <p id="formMsg" class="msg"></p>
+  </form>
+</section>
+
+<section class="lookup panel">
+  <div><small>TRA CỨU</small><h2>Kiểm tra ticket</h2><p>Nhập mã ticket để xem trạng thái.</p></div>
+  <div class="lookuprow"><input id="lookup" placeholder="RS-XXXXXX"><button class="btn" id="lookupBtn">Tra cứu</button></div>
+  <div id="lookupResult"></div>
+</section>
+
+<section id="faq">
+  <div class="section-head"><div><small>FAQ</small><h2>Câu hỏi thường gặp</h2></div></div>
+  <div class="faq">
+    <details><summary>Ticket là gì?</summary><p>Ticket là mã yêu cầu giúp bạn theo dõi một vấn đề từ lúc gửi đến khi hoàn thành.</p></details>
+    <details><summary>Tôi có cần tài khoản không?</summary><p>Bản triển khai này có thể nhận ticket bằng email. Khi bật Supabase Auth, người dùng có thể đăng nhập để quản lý lịch sử ticket.</p></details>
+    <details><summary>Bao lâu tôi nhận được phản hồi?</summary><p>Thời gian xử lý phụ thuộc vào loại và mức độ của yêu cầu.</p></details>
+  </div>
+</section>
+</main>
+
+<footer>RS Support Center · Built for support workflows</footer>
+<div id="toast" class="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
